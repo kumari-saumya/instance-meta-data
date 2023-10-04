@@ -13,7 +13,7 @@ def get_instance_details(key=None):
         response = requests.get(metadata_url)
         if response.status_code == 200:
             metadata = response.text
-            return metadata if key else {"metadata": metadata}
+            return {key: metadata} if key else {"metadata": metadata}
         else:
             return {"error": "Couldnot fetch details"}
 
